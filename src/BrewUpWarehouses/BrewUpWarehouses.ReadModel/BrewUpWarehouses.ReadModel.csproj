@@ -14,9 +14,4 @@
     <ProjectReference Include="..\BrewUpWarehouses.Messages\BrewUpWarehouses.Messages.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

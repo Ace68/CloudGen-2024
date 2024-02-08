@@ -7,20 +7,21 @@ namespace BrewUpWarehouses.Facade;
 
 public static class WarehousesHelper
 {
-    public static IServiceCollection AddWarehouses(this IServiceCollection services)
-    {
-        services.AddScoped<IWarehousesService, WarehousesService>();
-        services.AddScoped<IWarehousesFacade, WarehousesFacade>();
+	public static IServiceCollection AddWarehouses(this IServiceCollection services)
+	{
+		services.AddScoped<IWarehousesService, WarehousesService>();
+		services.AddScoped<IShippingOrderService, ShippingOrderService>();
+		services.AddScoped<IWarehousesFacade, WarehousesFacade>();
 
-        return services;
-    }
+		return services;
+	}
 
-    public static IServiceCollection AddWarehousesInfrastructure(this IServiceCollection services,
-        MongoDbSettings mongoDbSettings,
-        RabbitMqSettings rabbitMqSettings,
-        string eventStoreConnectionString)
-    {
-        services.AddInfrastructure(mongoDbSettings, rabbitMqSettings, eventStoreConnectionString);
-        return services;
-    }
+	public static IServiceCollection AddWarehousesInfrastructure(this IServiceCollection services,
+		MongoDbSettings mongoDbSettings,
+		RabbitMqSettings rabbitMqSettings,
+		string eventStoreConnectionString)
+	{
+		services.AddInfrastructure(mongoDbSettings, rabbitMqSettings, eventStoreConnectionString);
+		return services;
+	}
 }

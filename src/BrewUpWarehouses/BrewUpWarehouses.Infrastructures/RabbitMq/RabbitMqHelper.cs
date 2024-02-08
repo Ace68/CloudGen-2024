@@ -1,5 +1,6 @@
 ﻿using BrewUpWarehouses.Infrastructures.RabbitMq.Commands;
 using BrewUpWarehouses.Infrastructures.RabbitMq.Events;
+using BrewUpWarehouses.ReadModel.Services;
 using BrewUpWarehouses.Shared.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -32,6 +33,7 @@ public static class RabbitMqHelper
 		consumers = consumers.Concat(new List<IConsumer>
 		{
 			new CreateShippingOrderConsumer(repository, mufloneConnectionFactory, loggerFactory),
+			new ShippingOrderCreatedConsumer(serviceProvider.GetRequiredService<IShippingOrderService>(), mufloneConnectionFactory, loggerFactory),
 
 			new PrepareBrewOrderConsumer(repository, mufloneConnectionFactory, loggerFactory),
 			new BrewOrderPreparedConsumer(serviceProvider.GetRequiredService<IEventBus>(), mufloneConnectionFactory, loggerFactory)

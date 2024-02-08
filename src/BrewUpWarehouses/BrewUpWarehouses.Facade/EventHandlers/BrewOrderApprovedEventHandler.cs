@@ -1,17 +1,17 @@
-﻿using BrewUpWarehouses.Messages.IntegrationEvents;
+﻿using BrewUpWarehouses.Messages.Commands;
+using BrewUpWarehouses.Messages.IntegrationEvents;
 using Microsoft.Extensions.Logging;
 using Muflone.Messages.Events;
+using Muflone.Persistence;
 
 namespace BrewUpWarehouses.Facade.EventHandlers;
 
-public sealed class BrewOrderApprovedEventHandler : IntegrationEventHandlerAsync<BrewOrderApproved>
+public sealed class BrewOrderApprovedEventHandler
+	(ILoggerFactory loggerFactory, IServiceBus serviceBus) : IntegrationEventHandlerAsync<BrewOrderApproved>(loggerFactory)
 {
-	public BrewOrderApprovedEventHandler(ILoggerFactory loggerFactory) : base(loggerFactory)
+	public override async Task HandleAsync(BrewOrderApproved @event, CancellationToken cancellationToken = new())
 	{
-	}
-
-	public override Task HandleAsync(BrewOrderApproved @event, CancellationToken cancellationToken = new())
-	{
-		throw new NotImplementedException();
+		var createShippingOrder = new CreateShippingOrder(@event.BrewOrderId, @event.MessageId, @event.Rows);
+		await serviceBus.SendAsync(createShippingOrder, cancellationToken);
 	}
 }
