@@ -1,8 +1,8 @@
-﻿using BrewUpSales.Shared.BindingContracts;
-using BrewUpSales.Shared.DomainIds;
+﻿using BrewUpWarehouses.Shared.BindingContracts;
+using BrewUpWarehouses.Shared.DomainIds;
 using Muflone.Messages.Events;
 
-namespace BrewUpSales.Messages.IntegrationEvents;
+namespace BrewUpWarehouses.Messages.IntegrationEvents;
 
 public sealed class BrewOrderApproved(BrewOrderId aggregateId, Guid correlationId, IEnumerable<BrewOrderRow> rows)
 	: IntegrationEvent(aggregateId, correlationId)

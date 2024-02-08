@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+
+  brewup-warehouses:
+     container_name: "brewupwarehouses"
+     image: brewupwarehouses:latest
+     ports:
+         - 5200:8080
