@@ -32,6 +32,8 @@ public static class RabbitMqHelper
 		var consumers = serviceProvider.GetRequiredService<IEnumerable<IConsumer>>();
 		consumers = consumers.Concat(new List<IConsumer>
 		{
+			new BrewOrderApprovedConsumer(mufloneConnectionFactory, loggerFactory),
+
 			new CreateShippingOrderConsumer(repository, mufloneConnectionFactory, loggerFactory),
 			new ShippingOrderCreatedConsumer(serviceProvider.GetRequiredService<IShippingOrderService>(), mufloneConnectionFactory, loggerFactory),
 

@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using Muflone.Messages.Events;
 using Muflone.Persistence;
 
-namespace BrewUpWarehouses.Facade.EventHandlers;
+namespace BrewUpWarehouses.Acl.EventHandlers;
 
 public sealed class BrewOrderApprovedEventHandler
 	(ILoggerFactory loggerFactory, IServiceBus serviceBus) : IntegrationEventHandlerAsync<BrewOrderApproved>(loggerFactory)

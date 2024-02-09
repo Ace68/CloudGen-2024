@@ -1,4 +1,5 @@
-﻿using BrewUpWarehouses.Messages.Commands;
+﻿using BrewUpWarehouses.Domain.Aggregates;
+using BrewUpWarehouses.Messages.Commands;
 using Microsoft.Extensions.Logging;
 using Muflone.Persistence;
 
@@ -12,6 +13,7 @@ public sealed class CreateShippingOrderCommandHandler : CommandHandlerBaseAsync<
 
 	public override async Task ProcessCommand(CreateShippingOrder command, CancellationToken cancellationToken = default)
 	{
-		throw new NotImplementedException();
+		var aggreagate = ShippingOrder.CreateShippingOrder(command.BrewOrderId, command.MessageId, command.Rows);
+		await Repository.SaveAsync(aggreagate, Guid.NewGuid());
 	}
 }

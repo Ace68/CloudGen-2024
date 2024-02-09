@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewUpWarehouses.ReadModel"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{910C1C15-7E34-494E-B154-3C66D6DC732A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewUpWarehouses.Domain.Tests", "BrewUpWarehouses.Domain.Tests\BrewUpWarehouses.Domain.Tests.csproj", "{3FDDBA38-774B-46BC-829A-F68115AC1B51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrewUpWarehouses.Domain.Tests", "BrewUpWarehouses.Domain.Tests\BrewUpWarehouses.Domain.Tests.csproj", "{3FDDBA38-774B-46BC-829A-F68115AC1B51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrewUpWarehouses.Acl", "BrewUpWarehouses.Acl\BrewUpWarehouses.Acl.csproj", "{21F1AB8D-B428-42AF-9747-99A6E0C20607}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{3FDDBA38-774B-46BC-829A-F68115AC1B51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FDDBA38-774B-46BC-829A-F68115AC1B51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FDDBA38-774B-46BC-829A-F68115AC1B51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21F1AB8D-B428-42AF-9747-99A6E0C20607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F1AB8D-B428-42AF-9747-99A6E0C20607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F1AB8D-B428-42AF-9747-99A6E0C20607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F1AB8D-B428-42AF-9747-99A6E0C20607}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{25467218-44A3-47DC-B18B-31CB3C542BA4} = {2174AEF1-A687-47D3-8CEE-33203B823187}
 		{910C1C15-7E34-494E-B154-3C66D6DC732A} = {20EE4A30-3AC3-48BF-A117-526149211EBE}
 		{3FDDBA38-774B-46BC-829A-F68115AC1B51} = {910C1C15-7E34-494E-B154-3C66D6DC732A}
+		{21F1AB8D-B428-42AF-9747-99A6E0C20607} = {DA21616D-AB0D-4966-A7B1-C1278B28054A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40E467DF-1ECE-4B8F-B7C2-448162A6CC62}

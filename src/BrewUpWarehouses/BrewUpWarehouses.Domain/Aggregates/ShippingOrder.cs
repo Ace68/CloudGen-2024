@@ -27,6 +27,7 @@ public class ShippingOrder : AggregateRoot
 
 	private void Apply(ShippingOrderCreated @event)
 	{
+		Id = @event.BrewOrderId;
 		_brewOrderId = @event.BrewOrderId;
 		_rows = @event.Rows.ToEntity();
 	}

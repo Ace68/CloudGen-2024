@@ -6,7 +6,7 @@ namespace BrewUpWarehouses.ReadModel.Entities;
 
 public class ShippingOrder : EntityBase
 {
-	public readonly IEnumerable<BrewOrderRow> Rows;
+	public IEnumerable<BrewOrderRow> Rows;
 
 	protected ShippingOrder()
 	{

@@ -9,11 +9,11 @@
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Muflone" Version="6.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BrewUpWarehouses.Infrastructures\BrewUpWarehouses.Infrastructures.csproj" />
-    <ProjectReference Include="..\BrewUpWarehouses.ReadModel\BrewUpWarehouses.ReadModel.csproj" />
+    <ProjectReference Include="..\BrewUpWarehouses.Messages\BrewUpWarehouses.Messages.csproj" />
   </ItemGroup>
 
 </Project>
