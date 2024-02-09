@@ -11,7 +11,10 @@ public sealed class BrewOrderApprovedEventHandler
 {
 	public override async Task HandleAsync(BrewOrderApproved @event, CancellationToken cancellationToken = new())
 	{
-		var createShippingOrder = new CreateShippingOrder(@event.BrewOrderId, @event.MessageId, @event.Rows);
+		var correlationId =
+			new Guid(@event.UserProperties.FirstOrDefault(u => u.Key.Equals("CorrelationId")).Value.ToString()!);
+
+		var createShippingOrder = new CreateShippingOrder(@event.BrewOrderId, correlationId, @event.Rows);
 		await serviceBus.SendAsync(createShippingOrder, cancellationToken);
 	}
 }

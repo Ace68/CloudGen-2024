@@ -1,12 +1,14 @@
 ﻿using BrewUpWarehouses.ReadModel.Abstracts;
 using BrewUpWarehouses.Shared.BindingContracts;
 using BrewUpWarehouses.Shared.DomainIds;
+using BrewUpWarehouses.Shared.Enums;
 
 namespace BrewUpWarehouses.ReadModel.Entities;
 
 public class ShippingOrder : EntityBase
 {
-	public IEnumerable<BrewOrderRow> Rows;
+	public IEnumerable<BrewOrderRow> Rows { get; private set; }
+	public string Status { get; private set; }
 
 	protected ShippingOrder()
 	{
@@ -19,5 +21,14 @@ public class ShippingOrder : EntityBase
 	{
 		Id = brewOrderId;
 		Rows = rows;
+		Status = ShippingOrderStatus.Open.Name;
+	}
+
+	internal void ShipOrder()
+	{
+		if (!Equals(Status, ShippingOrderStatus.Open.Name))
+			return;
+
+		Status = ShippingOrderStatus.Shipped.Name;
 	}
 }

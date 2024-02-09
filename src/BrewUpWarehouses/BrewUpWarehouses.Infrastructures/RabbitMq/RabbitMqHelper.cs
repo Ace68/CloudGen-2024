@@ -37,6 +37,11 @@ public static class RabbitMqHelper
 			new CreateShippingOrderConsumer(repository, mufloneConnectionFactory, loggerFactory),
 			new ShippingOrderCreatedConsumer(serviceProvider.GetRequiredService<IShippingOrderService>(), mufloneConnectionFactory, loggerFactory),
 
+			new ShipOrderConsumer(repository, mufloneConnectionFactory, loggerFactory),
+			new OrderShippedConsumer(serviceProvider.GetRequiredService<IShippingOrderService>(),
+				serviceProvider.GetRequiredService<IEventBus>(),
+				mufloneConnectionFactory, loggerFactory),
+
 			new PrepareBrewOrderConsumer(repository, mufloneConnectionFactory, loggerFactory),
 			new BrewOrderPreparedConsumer(serviceProvider.GetRequiredService<IEventBus>(), mufloneConnectionFactory, loggerFactory)
 		});

@@ -14,7 +14,7 @@ namespace BrewUpSales.Facade;
 
 public static class SalesHelper
 {
-	public static IServiceCollection AddReceiver(this IServiceCollection services)
+	public static IServiceCollection AddSales(this IServiceCollection services)
 	{
 		services.AddFluentValidationAutoValidation();
 		services.AddValidatorsFromAssemblyContaining<BrewOrderContractValidator>();

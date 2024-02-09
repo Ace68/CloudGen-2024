@@ -17,4 +17,11 @@ public sealed class ShippingOrderService : BaseService, IShippingOrderService
 		var entity = ShippingOrder.CreateShippingOrder(brewOrderId, rows);
 		await Persister.InsertAsync(entity, cancellationToken);
 	}
+
+	public async Task ShipOrderAsync(BrewOrderId brewOrderId, CancellationToken cancellationToken)
+	{
+		var entity = await Persister.GetByIdAsync<ShippingOrder>(brewOrderId.Value.ToString(), cancellationToken);
+		entity.ShipOrder();
+		await Persister.UpdateAsync(entity, cancellationToken);
+	}
 }

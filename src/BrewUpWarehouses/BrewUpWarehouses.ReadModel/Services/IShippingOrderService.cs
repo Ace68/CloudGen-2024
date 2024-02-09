@@ -6,4 +6,5 @@ namespace BrewUpWarehouses.ReadModel.Services;
 public interface IShippingOrderService
 {
 	Task CreateShippingOrderAsync(BrewOrderId brewOrderId, IEnumerable<BrewOrderRow> rows, CancellationToken cancellationToken);
+	Task ShipOrderAsync(BrewOrderId brewOrderId, CancellationToken cancellationToken);
 }
